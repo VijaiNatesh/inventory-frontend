@@ -43,3 +43,6 @@ export const FETCH_USERS_FAIL = "FETCH_USERS_FAIL";
 export const FETCH_USERBILL_REQUEST = " FETCH_USERBILL_REQUEST"
 export const FETCH_USERBILL_SUCCESS = " FETCH_USERBILL_SUCCESS"
 export const FETCH_USERBILL_FAIL = " FETCH_USERBILL_FAIL"
+
+
+export const url = "https://inventoryvijainatesh.herokuapp.com/"

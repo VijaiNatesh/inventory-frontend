@@ -11,7 +11,8 @@ import {
     PURCHASE_DETAIL_FAIL,
     PURCHASE_DELETE_REQUEST,
     PURCHASE_DELETE_SUCCESS,
-    PURCHASE_DELETE_FAIL
+    PURCHASE_DELETE_FAIL,
+    url
 } from "../actionTypes";
 
 // Create Item
@@ -24,7 +25,7 @@ export const createItem = (purchaseData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.post('http://localhost:5000/api/purchase/additem',
+            const { data } = await axios.post('url/api/purchase/additem',
                 (purchaseData),
                 config)
             dispatch({
@@ -52,7 +53,7 @@ export const fetchPurchaseDetail = (id, purchaseData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.get(`http://localhost:5000/api/purchase/${id}`,
+            const { data } = await axios.get(`${url}/api/purchase/${id}`,
                 purchaseData, config)
             dispatch({
                 type: PURCHASE_DETAIL_SUCCESS,
@@ -79,7 +80,7 @@ export const updatePurchase = (id, purchaseData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.put(`http://localhost:5000/api/purchase/${id}`,
+            const { data } = await axios.put(`${url}/api/purchase/${id}`,
                 purchaseData, config)
             dispatch({
                 type: PURCHASE_UPDATE_SUCCESS,
@@ -105,7 +106,7 @@ export const deletePurchase = (id) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.delete(`http://localhost:5000/api/purchase/${id}`,
+            const { data } = await axios.delete(`${url}/api/purchase/${id}`,
                 config)
             dispatch({
                 type: PURCHASE_DELETE_SUCCESS,

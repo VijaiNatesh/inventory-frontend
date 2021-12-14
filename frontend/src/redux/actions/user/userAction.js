@@ -12,7 +12,8 @@ import {
     FETCH_USERS_FAIL,
     FETCH_USERBILL_REQUEST,
     FETCH_USERBILL_SUCCESS,
-    FETCH_USERBILL_FAIL
+    FETCH_USERBILL_FAIL,
+    url
 } from '../actionTypes';
 
 // Register User
@@ -25,7 +26,7 @@ export const userRegister = (name, email, password) => {
             const config = {
                 headers: { 'content-Type': 'application/json' }
             }
-            const { data } = await axios.post("http://localhost:5000/api/user/userregister",
+            const { data } = await axios.post("url/api/user/userregister",
                 { name, email, password }, config)
             dispatch({
                 type: USER_REGISTER_SUCCESS,
@@ -51,7 +52,7 @@ export const loginUser = (email, password) => {
             const config = {
                 headers: { content_Type: "application/json" }
             }
-            const { data } = await axios.post("http://localhost:5000/api/user/login",
+            const { data } = await axios.post("url/api/user/login",
                 { email, password }, config)
             dispatch({
                 type: USER_LOGIN_SUCCESS,
@@ -94,7 +95,7 @@ export const fetchProfile = () => {
                     content_Type: 'application/json'
                 }
             };
-            const { data } = await axios.get(`http://localhost:5000/api/user/profile/${id}`, config);
+            const { data } = await axios.get(`${url}/api/user/profile/${id}`, config);
             dispatch({
                 type: FETCH_USERS_SUCCESS,
                 payload: data,
@@ -122,7 +123,7 @@ export const fetchUserBill = () => {
                     content_Type: 'application/json'
                 }
             };
-            const { data } = await axios.get(`http://localhost:5000/api/user/bill/${id}`, config);
+            const { data } = await axios.get(`${url}/api/user/bill/${id}`, config);
             dispatch({
                 type: FETCH_USERBILL_SUCCESS,
                 payload: data,

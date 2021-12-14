@@ -5,7 +5,8 @@ import {
     ADD_SALESITEM_FAIL,   
     BILL_DELETE_REQUEST,
     BILL_DELETE_SUCCESS,
-    BILL_DELETE_FAIL
+    BILL_DELETE_FAIL,
+    url
 } from '../actionTypes';
 
 
@@ -19,7 +20,7 @@ export const createBill = (billData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.post("http://localhost:5000/api/bill",
+            const { data } = await axios.post("url/api/bill",
                 (billData),
                 config)
             dispatch({
@@ -47,7 +48,7 @@ export const deleteBill = (id) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.delete(`http://localhost:5000/api/bill/${id}`,
+            const { data } = await axios.delete(`${url}/api/bill/${id}`,
                 config)
             dispatch({
                 type: BILL_DELETE_SUCCESS,
