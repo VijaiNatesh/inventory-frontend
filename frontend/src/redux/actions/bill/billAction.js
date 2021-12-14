@@ -5,9 +5,9 @@ import {
     ADD_SALESITEM_FAIL,   
     BILL_DELETE_REQUEST,
     BILL_DELETE_SUCCESS,
-    BILL_DELETE_FAIL,
-    url
+    BILL_DELETE_FAIL 
 } from '../actionTypes';
+import {url} from "../../../../src/api/index"
 
 
 // Adding bill item

@@ -12,9 +12,10 @@ import {
     FETCH_USERS_FAIL,
     FETCH_USERBILL_REQUEST,
     FETCH_USERBILL_SUCCESS,
-    FETCH_USERBILL_FAIL,
-    url
+    FETCH_USERBILL_FAIL
 } from '../actionTypes';
+import {url} from "../../../../src/api/index"
+
 
 // Register User
 export const userRegister = (name, email, password) => {

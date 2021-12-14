@@ -11,9 +11,10 @@ import {
     PURCHASE_DETAIL_FAIL,
     PURCHASE_DELETE_REQUEST,
     PURCHASE_DELETE_SUCCESS,
-    PURCHASE_DELETE_FAIL,
-    url
+    PURCHASE_DELETE_FAIL
 } from "../actionTypes";
+import {url} from "../../../../src/api/index"
+
 
 // Create Item
 export const createItem = (purchaseData) => {
