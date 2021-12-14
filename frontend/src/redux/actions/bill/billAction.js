@@ -7,7 +7,7 @@ import {
     BILL_DELETE_SUCCESS,
     BILL_DELETE_FAIL 
 } from '../actionTypes';
-import {url} from "../../../../src/api/index"
+
 
 
 // Adding bill item
@@ -20,7 +20,7 @@ export const createBill = (billData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.post("url/api/bill",
+            const { data } = await axios.post("https://inventoryvijainatesh.herokuapp.com/api/bill",
                 (billData),
                 config)
             dispatch({
@@ -48,7 +48,7 @@ export const deleteBill = (id) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.delete(`${url}/api/bill/${id}`,
+            const { data } = await axios.delete(`https://inventoryvijainatesh.herokuapp.com/api/bill/${id}`,
                 config)
             dispatch({
                 type: BILL_DELETE_SUCCESS,

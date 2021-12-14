@@ -13,7 +13,7 @@ import {
     PURCHASE_DELETE_SUCCESS,
     PURCHASE_DELETE_FAIL
 } from "../actionTypes";
-import {url} from "../../../../src/api/index"
+
 
 
 // Create Item
@@ -26,7 +26,7 @@ export const createItem = (purchaseData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.post('url/api/purchase/additem',
+            const { data } = await axios.post('https://inventoryvijainatesh.herokuapp.com/api/purchase/additem',
                 (purchaseData),
                 config)
             dispatch({
@@ -54,7 +54,7 @@ export const fetchPurchaseDetail = (id, purchaseData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.get(`${url}/api/purchase/${id}`,
+            const { data } = await axios.get(`https://inventoryvijainatesh.herokuapp.com/api/purchase/${id}`,
                 purchaseData, config)
             dispatch({
                 type: PURCHASE_DETAIL_SUCCESS,
@@ -81,7 +81,7 @@ export const updatePurchase = (id, purchaseData) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.put(`${url}/api/purchase/${id}`,
+            const { data } = await axios.put(`https://inventoryvijainatesh.herokuapp.com/api/purchase/${id}`,
                 purchaseData, config)
             dispatch({
                 type: PURCHASE_UPDATE_SUCCESS,
@@ -107,7 +107,7 @@ export const deletePurchase = (id) => {
             const config = {
                 headers: { 'Content-Type': 'application/json' }
             }
-            const { data } = await axios.delete(`${url}/api/purchase/${id}`,
+            const { data } = await axios.delete(`https://inventoryvijainatesh.herokuapp.com/api/purchase/${id}`,
                 config)
             dispatch({
                 type: PURCHASE_DELETE_SUCCESS,
