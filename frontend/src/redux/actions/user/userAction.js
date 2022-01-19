@@ -96,7 +96,7 @@ export const fetchProfile = () => {
                     content_Type: 'application/json'
                 }
             };
-            const { data } = await axios.get(`https://inventoryvijainatesh.herokuapp.com/api/user/profile/${id}`, config);
+            const { data } = await axios.get(`https://inventoryvijainatesh.herokuapp.com/api/user/purchase/${id}`, config);
             dispatch({
                 type: FETCH_USERS_SUCCESS,
                 payload: data,
@@ -111,9 +111,11 @@ export const fetchProfile = () => {
 };
 
 export const fetchUserBill = () => {
+
     return async (dispatch, getState) => {
         const { usersInfo } = getState().user
         const id = usersInfo._id
+        console.log(id)
         try {
             dispatch({
                 type: FETCH_USERBILL_REQUEST,

@@ -1,29 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import {useParams } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {fetchPurchaseDetail, updatePurchase} from '../../redux/actions/purchase/purchaseAction'
+import {updatePurchase, fetchPurchaseDetail} from '../../redux/actions/purchase/purchaseAction'
 import { Form, Button} from 'react-bootstrap'
+
 
 function EditPurchase() {
     const {id} = useParams();
 
     // Getting the purchase details from the store
     const purchaseList = useSelector(state => state.purchase)
-    const {purchases} = purchaseList;
-    console.log(purchases)   
-
-    const [itemName, setItemName] = useState(purchases && purchases.itemName)
-    const [productKey, setProductKey] = useState(purchases && purchases.productKey)
-    const [quantity, setQuantity] = useState(purchases && purchases.quantity)
-    const [unitCost, setUnitCost] = useState(purchases && purchases.unitCost)
-    const [unitPrice, setUnitPrice] = useState(purchases && purchases.unitPrice)
-
-   
+    const {purchaseInfo} = purchaseList;
+    console.log(purchaseInfo && purchaseInfo.itemName)       
     
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchPurchaseDetail(id))
     },[dispatch, id])     
+
+    const [itemName, setItemName] = useState(purchaseInfo && purchaseInfo.itemName)
+    const [productKey, setProductKey] = useState(purchaseInfo && purchaseInfo.productKey)
+    const [quantity, setQuantity] = useState(purchaseInfo && purchaseInfo.quantity)
+    const [unitCost, setUnitCost] = useState(purchaseInfo && purchaseInfo.unitCost)
+    const [unitPrice, setUnitPrice] = useState(purchaseInfo && purchaseInfo.unitPrice)
+    console.log(itemName)
 
     const formSubmitHandler = (e) => {
         const purchaseData = {
@@ -44,8 +44,7 @@ function EditPurchase() {
                 <Form.Label>Item Name</Form.Label>
                 <Form.Control                    
                 type="text" 
-                size = "sm" 
-                placeholder="Enter the Item Name"
+                size = "sm"        
                 value = {itemName}
                 onChange = {(e) => setItemName(e.target.value)} />                    
             </Form.Group>
@@ -55,8 +54,7 @@ function EditPurchase() {
                 <Form.Label>Product Key</Form.Label>
                 <Form.Control                    
                 type="text" 
-                size = "sm" 
-                placeholder="Enter the Product Key"
+                size = "sm"                
                 value = {productKey}
                 onChange = {(e) => setProductKey(e.target.value)} />                    
             </Form.Group>
@@ -65,8 +63,7 @@ function EditPurchase() {
                 <Form.Label>Quantity</Form.Label>
                 <Form.Control                   
                 type="number" 
-                size = "sm" 
-                placeholder="Quantity"
+                size = "sm"             
                 value = {quantity}
                 onChange = {(e) => setQuantity(e.target.value)} />                    
             </Form.Group>
@@ -75,8 +72,7 @@ function EditPurchase() {
                 <Form.Label>Unit Cost</Form.Label>
                 <Form.Control                   
                 type="number" 
-                size = "sm" 
-                placeholder="Unit Cost"
+                size = "sm"             
                 value = {unitCost}
                 onChange = {(e) => setUnitCost(e.target.value)} />                    
             </Form.Group>
@@ -85,8 +81,7 @@ function EditPurchase() {
                 <Form.Label>Unit Price</Form.Label>
                 <Form.Control                   
                 type="number" 
-                size = "sm" 
-                placeholder="Unit Price"
+                size = "sm"               
                 value = {unitPrice}
                 onChange = {(e) => setUnitPrice(e.target.value)} />                    
             </Form.Group>             

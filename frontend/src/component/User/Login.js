@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Form, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../../redux/actions/user/userAction';
+import {useHistory} from 'react-router-dom'
 
-function Login({history}) {
+
+
+function Login() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();  
+   const history = useHistory();
 
     const userLoginDetails = useSelector(state => state.user);
     const { loading, usersInfo, error } = userLoginDetails;
-    console.log(loading, usersInfo, error);
-
-    useEffect(() => {
-        if (usersInfo) {
-            history.push('/home');
-        }
-    }, [usersInfo, history]);
+    console.log(loading, usersInfo, error);   
 
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
         dispatch(loginUser(email, password))
         setEmail(" ")
-        setPassword(" ")
+        setPassword(" ")    
+       history.push("/purchase")
+
     }
-
-
 
 
     return (
         <div>
-            <Form className="w-50 mx-auto" onSubmit={formSubmitHandler}>
+            
+            <Form className="w-50 mx-auto pt-4" onSubmit={formSubmitHandler}>
 
                 <Form.Group className="mb-2 " controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>

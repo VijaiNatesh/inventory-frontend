@@ -34,7 +34,7 @@ function Bill() {
                             <th>Product Key</th>
                             <th>Quantity Purchased</th>
                             <th>Unit Price</th>
-                            <th>Total</th>
+                            <th>Total</th>                          
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -42,12 +42,12 @@ function Bill() {
                         {userbill.map((item) => {
                             return (
                                 <tr>
-                                    <td>{item.purchaseItemName}</td>
+                                    <td>{item.billItemName}</td>
                                     <td>{item.billProductKey}</td>
                                     <td>{item.billQuantity}</td>
-                                    <td>{item.purchaseUnitPrice}</td>
-                                    <td>{item.total}</td>
-                                    <td><button onClick={() => handlerBillDelete(item._id)} style={{ color: 'red', cursor: 'progress' }}>Delete</button></td>
+                                    <td>{item.billUnitPrice}</td>
+                                    <td>{item.total}</td>                                    
+                                    <td><button onClick={() => handlerBillDelete(item.billId)} style={{ color: 'red', cursor: 'progress' }}>Delete</button></td>
                                 </tr>
                             )
                         })}

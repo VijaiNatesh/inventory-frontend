@@ -22,7 +22,7 @@ export const purchaseReducer = (state = {}, action) => {
         }
         case PURCHASE_DETAIL_SUCCESS:
         return {
-            purchases: action.payload
+            purchaseInfo: action.payload
         }
         case PURCHASE_DETAIL_FAIL:
         return{
